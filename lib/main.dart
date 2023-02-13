@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'font_style.dart';
 
 // void main() {
 //   runApp(const MyApp());
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
           // Notice that the counter didn't reset back to zero; the application
           // is not restarted.
           primarySwatch: Colors.blue,
+
+          // Deklarasi Default Font
+          fontFamily: "Poppins",
         ),
         // home: const MyHomePage(title: 'Flutter Demo Home Page'),
         home: Scaffold(
@@ -38,14 +42,52 @@ class MyApp extends StatelessWidget {
             // actions: <Widget>[Icon(Icons.email_rounded)],
 
             // Action Icon v2
-            actions: <Widget>[
-              IconButton(onPressed: () {}, icon: Icon(Icons.email_rounded))
-            ],
+            // actions: <Widget>[
+            //   IconButton(onPressed: () {}, icon: Icon(Icons.email_rounded))
+            // ],
           ),
           body: SafeArea(
-              child: Image(
-            image: AssetImage("img/Github_BG1.jpg"),
-            height: 400,
+              child: Container(
+            // Margin & Padding hanya bisa dikonfigurasi dalam Container
+            // Margin & Padding EdgeInsets.all => Kasih Margin All dengan yang nilai sama
+            // margin: EdgeInsets.all(35),
+            // padding: Edgeinsets.all(35),
+
+            // Margin & Padding EdgeInsets.only => Kasih Margin dengan nilai tertentu
+            margin: EdgeInsets.only(left: 23, right: 23, top: 20, bottom: 20),
+            padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+
+            // Row version
+            // child: Row(
+            //   children: <Widget>[
+            //     Image(
+            //       image: AssetImage("img/Github_BG1.jpg"),
+            //       height: 400,
+            //     ),
+            //     Text("GIT & GITHUB"),
+            //     Text("Version Control With Website Based")
+            //   ],
+            // ),
+
+            // Column version
+            child: Column(
+              children: <Widget>[
+                Image(
+                  image: AssetImage("img/Github_BG3.jpg"),
+                  height: 400,
+                ),
+                Text(
+                  "Hello GIT & GITHUB",
+                  style: fontHeader,
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  "This Version Control System Website Based. This \nVersion Control System Website Based.",
+                  style: fontSub,
+                  textAlign: TextAlign.justify,
+                )
+              ],
+            ),
           )),
         ));
   }
